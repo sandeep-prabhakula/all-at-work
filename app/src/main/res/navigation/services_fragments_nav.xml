@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/services_fragments_nav"
+    app:startDestination="@id/listServicesFragment">
+
+    <fragment
+        android:id="@+id/listServicesFragment"
+        android:name="com.sandeepprabhakula.smartindiahackathon.ListServicesFragment"
+        android:label="fragment_list_services"
+        tools:layout="@layout/fragment_list_services" >
+        <action
+            android:id="@+id/action_listServicesFragment_to_userProfile"
+            app:destination="@id/userProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.sandeepprabhakula.smartindiahackathon.UserProfile"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfile_to_userUsedServicesList"
+            app:destination="@id/userUsedServicesList" />
+    </fragment>
+    <fragment
+        android:id="@+id/userUsedServicesList"
+        android:name="com.sandeepprabhakula.smartindiahackathon.UserUsedServicesList"
+        android:label="fragment_user_used_services_list"
+        tools:layout="@layout/fragment_user_used_services_list" />
+</navigation>

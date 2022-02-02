@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchFragment">
+    <LinearLayout
+        android:id="@+id/filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filters_background"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/filteredWorkers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/searhInYourCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search in your city"
+            android:layout_marginRight="30dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/mumbai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mumbai"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/hyderabad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hyderabad"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/chennai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chennai"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/delhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delhi"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/kochin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kochin"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/kolkata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kolkata"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/bangalore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bangalore"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/jaipur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jaipur"
+                android:background="@drawable/text_view_bg"
+                android:textColor="#089Aff"
+                android:padding="5dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filteredWorkers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filters"
+        tools:listitem="@layout/worker_layout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

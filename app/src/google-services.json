@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "484999915956",
+    "project_id": "smartindiahackathon2022",
+    "storage_bucket": "smartindiahackathon2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484999915956:android:4a4339d51aece389f7eae1",
+        "android_client_info": {
+          "package_name": "com.sandeepprabhakula.smartindiahackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484999915956-0bv63d7kbqab5sn8g4pk38ad8rpo5mkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHitb16NqEEofvViNMiwmrM8cwFqtOEB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484999915956-0bv63d7kbqab5sn8g4pk38ad8rpo5mkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
