@@ -2,23 +2,18 @@ package com.sandeepprabhakula.smartindiahackathon
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.fragment.app.Fragment
 import com.sandeepprabhakula.smartindiahackathon.daos.WorkersDao
 import com.sandeepprabhakula.smartindiahackathon.models.Worker
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 class RegisterForServiceProvider : Fragment() {
-    private val workersDao:WorkersDao = WorkersDao()
+    private val workersDao: WorkersDao = WorkersDao()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,11 +35,18 @@ class RegisterForServiceProvider : Fragment() {
             val skills = newWorkerSkills.text.toString()
             if (!TextUtils.isEmpty(name) &&
                 !TextUtils.isEmpty(age) &&
-                !TextUtils.isEmpty(mobile) && mobile.length==10 &&
+                !TextUtils.isEmpty(mobile) && mobile.length == 10 &&
                 !TextUtils.isEmpty(location) &&
                 !TextUtils.isEmpty(skills)
             ) {
-                workersDao.addWorker(Worker(name,age,mobile,skills,0,location.lowercase()))
+                workersDao.addWorker(Worker(name, age, mobile, skills, 0, location.lowercase()))
+                Toast.makeText(activity, "Registration Successful ", Toast.LENGTH_SHORT)
+                    .show()
+                newWorkerAge.setText("")
+                newWorkerName.setText("")
+                newWorkerSkills.setText("")
+                newWorkerLocation.setText("")
+                newWorkerMobile.setText("")
             } else {
                 Toast.makeText(activity, "Empty credentials not accepted", Toast.LENGTH_SHORT)
                     .show()

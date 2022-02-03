@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">All at work</string>
+    <string name="use_current_location">Use current location</string>
+    <string name="save_changes">Save changes</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="all_at_work">All At Work</string>
+    <string name="register_as_service_provider">Register as Service provider</string>
+    <string name="logo">LOGO</string>
+    <string name="name">Name*</string>
+    <string name="register_worker">Register Worker</string>
+    <string name="enter_the_skills_of_the_worker">Enter the skills of the worker</string>
+    <string name="skills">Skills*</string>
+    <string name="enter_the_mobile_number_of_the_worker">enter the mobile number of the worker</string>
+    <string name="mobile_number_worker_registration">Mobile Number*</string>
+    <string name="enter_the_name_of_the_worker">Enter the name of the worker</string>
+    <string name="age">Age*</string>
+    <string name="enter_the_age_of_the_worker">enter the age of the worker</string>
+    <string name="location">Location*</string>
+    <string name="enter_the_location_of_the_worker">Enter the location of the worker</string>
+    <string name="hyderabad">Hyderabad</string>
+    <string name="chennai">Chennai</string>
+    <string name="kochin">Kochin</string>
+    <string name="mumbai">Mumbai</string>
+    <string name="jaipur">Jaipur</string>
+    <string name="delhi">Delhi</string>
+    <string name="bangalore">Bangalore</string>
+    <string name="kolkata">Kolkata</string>
+    <string name="search_in_your_city">Search in your city</string>
+    <string name="used_services">Used Services</string>
+    <string name="add_more_details">Add more details</string>
+    <string name="logout">Logout</string>
+    <string name="danger_zone">Danger zone</string>
+    <string name="delete_account">DELETE ACCOUNT</string>
+    <string name="display_picture">Display Picture</string>
+    <string name="request_a_service">Request a Service</string>
 </resources>

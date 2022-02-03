@@ -77,12 +77,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:backgroundTint="#089Aff"
-            android:text="Request a Service "
+            android:text="@string/request_a_service"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/workerSkills"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

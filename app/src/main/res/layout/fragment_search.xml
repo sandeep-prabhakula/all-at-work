@@ -21,12 +21,13 @@
             android:id="@+id/searhInYourCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search in your city"
-            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
+            android:padding="5dp"
+            android:text="@string/search_in_your_city"
             android:textColor="#fff"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,44 +35,49 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:padding="20dp">
+
             <TextView
                 android:id="@+id/mumbai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mumbai"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/mumbai"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/hyderabad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hyderabad"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/hyderabad"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/chennai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chennai"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/chennai"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/delhi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delhi"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/delhi"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
         </LinearLayout>
 
@@ -81,44 +87,49 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:padding="10dp">
+
             <TextView
                 android:id="@+id/kochin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kochin"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/kochin"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/kolkata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kolkata"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/kolkata"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/bangalore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bangalore"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/bangalore"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/jaipur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jaipur"
                 android:background="@drawable/text_view_bg"
+                android:padding="5dp"
+                android:text="@string/jaipur"
                 android:textColor="#089Aff"
-                android:padding="5dp"/>
+                tools:ignore="TextContrastCheck" />
 
 
         </LinearLayout>

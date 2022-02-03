@@ -29,42 +29,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:text="@string/name"
                 android:textColor="#fff"
-                android:text="Name*" />
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/newWorkerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:background="@drawable/edit_text_bg"
                 android:ems="10"
-                android:hint="Enter the name of the worker"
+                android:hint="@string/enter_the_name_of_the_worker"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="5dp"
                 android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/Age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:text="@string/age"
                 android:textColor="#fff"
-                android:text="Age*" />
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/newWorkerAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:background="@drawable/edit_text_bg"
                 android:ems="10"
-                android:hint="enter the age of the worker "
+                android:hint="@string/enter_the_age_of_the_worker"
                 android:inputType="number"
                 android:minHeight="48dp"
                 android:padding="5dp"
                 android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
 
             <TextView
@@ -72,63 +76,69 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:text="@string/location"
                 android:textColor="#fff"
-                android:text="Location*" />
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/newWorkerLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:background="@drawable/edit_text_bg"
                 android:ems="10"
-                android:hint="Enter the location of the worker"
+                android:hint="@string/enter_the_location_of_the_worker"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="5dp"
                 android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/Mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:text="@string/mobile_number_worker_registration"
                 android:textColor="#fff"
-                android:text="Mobile Number*" />
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/newWorkerMobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:background="@drawable/edit_text_bg"
                 android:ems="10"
-                android:hint="enter the mobile number of the worker"
+                android:hint="@string/enter_the_mobile_number_of_the_worker"
                 android:inputType="phone"
                 android:minHeight="48dp"
                 android:padding="5dp"
                 android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/Skills"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:text="@string/skills"
                 android:textColor="#fff"
-                android:text="Skills*" />
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/newWorkerSkills"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:background="@drawable/edit_text_bg"
                 android:ems="10"
-                android:hint="Enter the skills of the worker"
+                android:hint="@string/enter_the_skills_of_the_worker"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="5dp"
                 android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
         </LinearLayout>
     </ScrollView>
@@ -137,12 +147,13 @@
         android:id="@+id/registerWorker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/register_worker"
+        android:textColor="#089Aff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        android:text="Register Worker"
-        android:textColor="#089Aff"
-        android:backgroundTint="@color/white"/>
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

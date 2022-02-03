@@ -189,6 +189,10 @@ class WorkingFragmentsHolder : AppCompatActivity() {
         super.onResume()
         checkGpsStatus()
     }
+
+    override fun onRestart() {
+        super.onRestart()
+    }
 }
 
 

@@ -13,36 +13,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Mobile Number" />
+        android:text="@string/mobile_number" />
 
     <EditText
         android:id="@+id/userMobileNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:background="@drawable/edit_text_bg"
         android:ems="10"
+        android:hint="@string/mobile_number"
         android:inputType="phone"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/tvUserAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Address" />
+        android:text="@string/address" />
 
     <EditText
         android:id="@+id/userAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:background="@drawable/edit_text_bg"
         android:ems="10"
+        android:hint="@string/address"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/useCurrentLocation"
@@ -50,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_margin="5dp"
-        android:text="Use current location"
+        android:text="@string/use_current_location"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -58,11 +62,11 @@
         android:id="@+id/saveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="8dp"
         android:backgroundTint="#089Aff"
-        android:text="Save changes"
+        android:text="@string/save_changes"
         app:cornerRadius="10dp"
-        android:layout_gravity="center"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
 </LinearLayout>
