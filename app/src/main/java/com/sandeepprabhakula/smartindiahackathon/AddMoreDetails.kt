@@ -1,11 +1,8 @@
 package com.sandeepprabhakula.smartindiahackathon
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
@@ -21,8 +17,6 @@ import com.google.android.gms.location.LocationServices
 import com.sandeepprabhakula.smartindiahackathon.daos.UserDao
 
 class AddMoreDetails : Fragment() {
-    private var flpc: FusedLocationProviderClient =
-        LocationServices.getFusedLocationProviderClient(requireActivity())
     var lat: Double = 0.0
     var lon: Double = 0.0
     private lateinit var userDao: UserDao
@@ -68,6 +62,7 @@ class AddMoreDetails : Fragment() {
     }
 
     private fun getLocationCoordinates() {
+        val flpc = LocationServices.getFusedLocationProviderClient(requireActivity())
         flpc.lastLocation.addOnSuccessListener {
             if (it == null) {
                 newLocationRequest()
