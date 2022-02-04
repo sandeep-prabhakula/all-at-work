@@ -49,11 +49,34 @@
         tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
+        android:id="@+id/tvUserPINCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/pin_code" />
+
+
+    <EditText
+        android:id="@+id/userPINCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:hint="@string/enter_the_pin_code"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+
+    <TextView
         android:id="@+id/useCurrentLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="center"
         android:layout_margin="5dp"
+        android:padding="15dp"
         android:text="@string/use_current_location"
         android:textSize="18sp"
         android:textStyle="bold" />

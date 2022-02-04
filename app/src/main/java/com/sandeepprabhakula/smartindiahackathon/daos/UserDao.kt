@@ -51,7 +51,7 @@ class UserDao {
         }
     }
 
-    fun updateDetails(mobile:String,address:String){
+    fun updateDetails(mobile:String,address:String,pinCode:String){
         GlobalScope.launch(Dispatchers.IO){
             val user = getUserById(firebaseUser?.uid.toString()).await().toObject(User::class.java)
             if(address.isNotBlank()){
@@ -59,6 +59,9 @@ class UserDao {
             }
             if(mobile.isNotBlank()){
                 user?.userMobile = mobile
+            }
+            if(pinCode.isNotBlank()){
+                user?.userPINCode = pinCode
             }
             usersCollection.document(firebaseUser?.uid.toString()).set(user!!)
         }

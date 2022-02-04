@@ -7,5 +7,6 @@ data class User(
     var userImage:String = "",
     var userMobile:String = "",
     var userAddress:String = "",
-    var usedServices:ArrayList<Worker> = ArrayList()
+    var usedServices:ArrayList<Worker> = ArrayList(),
+    var userPINCode:String = ""
 )

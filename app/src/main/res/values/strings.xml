@@ -34,4 +34,6 @@
     <string name="delete_account">DELETE ACCOUNT</string>
     <string name="display_picture">Display Picture</string>
     <string name="request_a_service">Request a Service</string>
+    <string name="pin_code">PIN Code*</string>
+    <string name="enter_the_pin_code">Enter the PIN code</string>
 </resources>

@@ -24,12 +24,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
     var intent1: Intent? = null
     private var gpsStatus = false
 
-    companion object {
-        private lateinit var flpc: FusedLocationProviderClient
-        var lat: String = ""
-        var lon: String = ""
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityWorkingFragementsHolderBinding.inflate(layoutInflater)
@@ -37,7 +31,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
         context = applicationContext
         requestPermissions()
         checkGpsStatus()
-        getLocationCoordinates()
         supportFragmentManager.beginTransaction().apply {
             replace(binding.workingFragmentsHost.id, ListServicesFragment())
             commit()
@@ -84,16 +77,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
             Manifest.permission.ACCESS_FINE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
 
-    private fun hasBackgroundPermission() =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        } else {
-            TODO("VERSION.SDK_INT < Q")
-        }
-
     private fun hasSendSMSPermission() =
         ActivityCompat.checkSelfPermission(
             this,
@@ -104,11 +87,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
         val permissionToRequest = mutableListOf<String>()
         if (!hasLocationAccessPermission()) {
             permissionToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
-        }
-        if (!hasBackgroundPermission()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                permissionToRequest.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-            }
         }
         if(!hasSendSMSPermission()){
             permissionToRequest.add(Manifest.permission.SEND_SMS)
@@ -146,43 +124,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
     private fun enableGPS() {
         intent1 = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         startActivity(intent1)
-    }
-
-    private fun getLocationCoordinates() {
-        flpc = LocationServices.getFusedLocationProviderClient(this)
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        flpc.lastLocation.addOnSuccessListener {
-            if (it == null) {
-                newLocationRequest()
-            } else {
-                lat = it.latitude.toString()
-                lon = it.longitude.toString()
-            }
-        }
-    }
-
-    private fun newLocationRequest() {
-        val locationRequest = LocationRequest()
-        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        locationRequest.interval = 1000
-        locationRequest.numUpdates = 1
-        locationRequest.fastestInterval = 0
     }
 
     override fun onResume() {

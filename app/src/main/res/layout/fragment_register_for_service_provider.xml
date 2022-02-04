@@ -140,6 +140,30 @@
                 android:text=""
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
+            <TextView
+                android:id="@+id/PINCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/pin_code"
+                android:textColor="#fff"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/newWorkerPINCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint="@string/enter_the_pin_code"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:text=""
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
+
+
         </LinearLayout>
     </ScrollView>
 

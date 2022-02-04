@@ -27,19 +27,22 @@ class RegisterForServiceProvider : Fragment() {
         val newWorkerSkills: EditText = view.findViewById(R.id.newWorkerSkills)
         val newWorkerLocation: EditText = view.findViewById(R.id.newWorkerLocation)
         val registerWorker: Button = view.findViewById(R.id.registerWorker)
+        val newWorkerPINCode: EditText = view.findViewById(R.id.newWorkerPINCode)
         registerWorker.setOnClickListener {
             val name = newWorkerName.text.toString()
             val mobile = newWorkerMobile.text.toString()
             val age = newWorkerAge.text.toString()
             val location = newWorkerLocation.text.toString()
             val skills = newWorkerSkills.text.toString()
+            val pinCode = newWorkerPINCode.text.toString()
             if (!TextUtils.isEmpty(name) &&
                 !TextUtils.isEmpty(age) &&
                 !TextUtils.isEmpty(mobile) && mobile.length == 10 &&
                 !TextUtils.isEmpty(location) &&
-                !TextUtils.isEmpty(skills)
+                !TextUtils.isEmpty(skills) &&
+                !TextUtils.isEmpty(pinCode)
             ) {
-                workersDao.addWorker(Worker(name, age, mobile, skills, 0, location.lowercase()))
+                workersDao.addWorker(Worker(name, age, mobile, skills, 0, location.lowercase(),pinCode))
                 Toast.makeText(activity, "Registration Successful ", Toast.LENGTH_SHORT)
                     .show()
                 newWorkerAge.setText("")
@@ -47,6 +50,7 @@ class RegisterForServiceProvider : Fragment() {
                 newWorkerSkills.setText("")
                 newWorkerLocation.setText("")
                 newWorkerMobile.setText("")
+                newWorkerPINCode.setText("")
             } else {
                 Toast.makeText(activity, "Empty credentials not accepted", Toast.LENGTH_SHORT)
                     .show()
