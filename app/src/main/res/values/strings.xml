@@ -26,6 +26,17 @@
     <string name="delhi">Delhi</string>
     <string name="bangalore">Bangalore</string>
     <string name="kolkata">Kolkata</string>
+    <string-array name="Cities">
+        <item>Select a city</item>
+        <item>Hyderabad</item>
+        <item>Mumbai</item>
+        <item>Chennai</item>
+        <item>Bangalore</item>
+        <item>Kolkata</item>
+        <item>Delhi</item>
+        <item>Jaipur</item>
+        <item>Kochin</item>
+    </string-array>
     <string name="search_in_your_city">Search in your city</string>
     <string name="used_services">Used Services</string>
     <string name="add_more_details">Add more details</string>

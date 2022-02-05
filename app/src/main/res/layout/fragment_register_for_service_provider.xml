@@ -94,6 +94,15 @@
                 android:text=""
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
+            <Spinner
+                android:id="@+id/locationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
             <TextView
                 android:id="@+id/Mobile"
                 android:layout_width="match_parent"
