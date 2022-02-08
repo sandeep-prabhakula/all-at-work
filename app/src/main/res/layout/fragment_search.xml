@@ -17,17 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/searhInYourCity"
-            android:layout_width="wrap_content"
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:padding="5dp"
-            android:text="@string/search_in_your_city"
-            android:textColor="#fff"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+            app:defaultQueryHint="@string/search_in_your_city"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@null"
+            app:queryHint="@string/search_in_your_city" />
 
         <LinearLayout
             android:layout_width="match_parent"

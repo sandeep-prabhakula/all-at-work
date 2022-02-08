@@ -4,18 +4,19 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.*
 import com.sandeepprabhakula.smartindiahackathon.databinding.ActivityWorkingFragementsHolderBinding
+import java.util.concurrent.TimeUnit
 
 class WorkingFragmentsHolder : AppCompatActivity() {
 
@@ -23,6 +24,10 @@ class WorkingFragmentsHolder : AppCompatActivity() {
     private lateinit var locationManager: LocationManager
     var intent1: Intent? = null
     private var gpsStatus = false
+    private lateinit var locationCallback: LocationCallback
+    private var currentLocation: Location? = null
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +36,9 @@ class WorkingFragmentsHolder : AppCompatActivity() {
         context = applicationContext
         requestPermissions()
         checkGpsStatus()
+        newLocationRequest()
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper()!!)
         supportFragmentManager.beginTransaction().apply {
             replace(binding.workingFragmentsHost.id, ListServicesFragment())
             commit()
@@ -133,6 +141,22 @@ class WorkingFragmentsHolder : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+    }
+    private fun newLocationRequest() {
+        locationRequest = LocationRequest.create().apply{
+            interval = TimeUnit.SECONDS.toMillis(1)
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            maxWaitTime = 2
+            fastestInterval = TimeUnit.SECONDS.toMillis(1)
+        }
+        locationCallback = object:LocationCallback(){
+            override fun onLocationResult(p0: LocationResult) {
+                super.onLocationResult(p0)
+                currentLocation = p0.lastLocation
+                AddMoreDetails.lat = currentLocation!!.latitude
+                AddMoreDetails.lon = currentLocation!!.longitude
+            }
+        }
     }
 }
 

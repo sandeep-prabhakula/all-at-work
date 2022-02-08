@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +38,17 @@ class SearchFragment : Fragment(), ServiceRequest {
         val delhi: TextView = view.findViewById(R.id.delhi)
         val kolkata: TextView = view.findViewById(R.id.kolkata)
         val jaipur: TextView = view.findViewById(R.id.jaipur)
+        val searchView:SearchView = view.findViewById(R.id.searchView)
+        searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                setupRecyclerView(query!!)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
         filteredWorkers = view.findViewById(R.id.filteredWorkers)
         mumbai.setOnClickListener {
             setupRecyclerView(mumbai.text.toString())
