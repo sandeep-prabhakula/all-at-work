@@ -2,7 +2,6 @@ package com.sandeepprabhakula.smartindiahackathon
 
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,18 +11,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
 import com.sandeepprabhakula.smartindiahackathon.daos.UserDao
 
 class AddMoreDetails : Fragment() {
-    companion object{
-        var lat: Double = 17.3850
-        var lon: Double = 78.4867
-    }
     private lateinit var userDao: UserDao
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,11 +46,11 @@ class AddMoreDetails : Fragment() {
         useCurrentLocation.setOnClickListener {
             val geocoder = Geocoder(activity)
             val list: MutableList<Address> = geocoder.getFromLocation(
-                lat,
-                lon,
+                WorkingFragmentsHolder.lat,
+                WorkingFragmentsHolder.lon,
                 1
             )
-            address.setText(list[0].locality)
+            address.setText(list[0].getAddressLine(0))
             pinCode.setText(list[0].postalCode)
         }
         return view

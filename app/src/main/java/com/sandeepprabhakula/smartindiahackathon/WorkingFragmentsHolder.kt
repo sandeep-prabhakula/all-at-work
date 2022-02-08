@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
-import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
@@ -19,7 +18,10 @@ import com.sandeepprabhakula.smartindiahackathon.databinding.ActivityWorkingFrag
 import java.util.concurrent.TimeUnit
 
 class WorkingFragmentsHolder : AppCompatActivity() {
-
+    companion object{
+        var lat:Double = 12.00
+        var lon:Double = 14.00
+    }
     private lateinit var context: Context
     private lateinit var locationManager: LocationManager
     var intent1: Intent? = null
@@ -130,7 +132,7 @@ class WorkingFragmentsHolder : AppCompatActivity() {
     }
 
     private fun enableGPS() {
-        intent1 = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        intent1 = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivity(intent1)
     }
 
@@ -153,8 +155,8 @@ class WorkingFragmentsHolder : AppCompatActivity() {
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
                 currentLocation = p0.lastLocation
-                AddMoreDetails.lat = currentLocation!!.latitude
-                AddMoreDetails.lon = currentLocation!!.longitude
+                lat = currentLocation!!.latitude
+                lon = currentLocation!!.longitude
             }
         }
     }
