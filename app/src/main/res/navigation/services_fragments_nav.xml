@@ -9,14 +9,7 @@
         android:id="@+id/listServicesFragment"
         android:name="com.sandeepprabhakula.smartindiahackathon.ListServicesFragment"
         android:label="Services"
-        tools:layout="@layout/fragment_list_services" >
-        <action
-            android:id="@+id/action_listServicesFragment_to_userProfile"
-            app:destination="@id/userProfile" />
-        <action
-            android:id="@+id/action_listServicesFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_list_services" />
     <fragment
         android:id="@+id/userProfile"
         android:name="com.sandeepprabhakula.smartindiahackathon.UserProfile"

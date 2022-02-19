@@ -12,8 +12,8 @@ import android.provider.Settings
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.location.*
 import com.sandeepprabhakula.smartindiahackathon.databinding.ActivityWorkingFragementsHolderBinding
 import java.util.concurrent.TimeUnit
@@ -42,22 +42,8 @@ class WorkingFragmentsHolder : AppCompatActivity() {
         newLocationRequest()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper()!!)
-        val home = ListServicesFragment()
-        val search = SearchFragment()
-        val user = UserProfile()
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.workingFragmentsHost, home)
-            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            commit()
-        }
-        binding.bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home->setCurrentFragment(home)
-                R.id.search->setCurrentFragment(search)
-                R.id.profile->setCurrentFragment(user)
-            }
-            true
-        }
+        val navController = findNavController(R.id.workingFragmentsHost)
+        binding.bottomNav.setupWithNavController(navController)
     }
 
     private fun hasLocationAccessPermission() =
@@ -137,14 +123,6 @@ class WorkingFragmentsHolder : AppCompatActivity() {
                 lat = currentLocation!!.latitude
                 lon = currentLocation!!.longitude
             }
-        }
-    }
-    private fun setCurrentFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.workingFragmentsHost, fragment)
-            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            addToBackStack(null)
-            commit()
         }
     }
 }

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.sandeepprabhakula.smartindiahackathon.daos.UserDao
@@ -30,25 +30,15 @@ class UserProfile : Fragment() {
         val delete: TextView = view.findViewById(R.id.deleteAccount)
         val userProfileName: TextView = view.findViewById(R.id.userProfileName)
         val userProfileEmail: TextView = view.findViewById(R.id.userProfileEmail)
-        val addMoreDetails:TextView = view.findViewById(R.id.addMoreDetails)
+        val addMoreDetails: TextView = view.findViewById(R.id.addMoreDetails)
         addMoreDetails.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.apply {
-                replace(R.id.workingFragmentsHost, AddMoreDetails())
-                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                addToBackStack(null)
-                commit()
-            }
+            findNavController().navigate(R.id.action_userProfile_to_addMoreDetails2)
         }
         userProfileName.text = user?.displayName
         userProfileEmail.text = user?.email
         Glide.with(displayPicture.context).load(user?.photoUrl).circleCrop().into(displayPicture)
         usedServices.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.apply {
-                replace(R.id.workingFragmentsHost, UserUsedServicesList())
-                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                addToBackStack(null)
-                commit()
-            }
+            findNavController().navigate(R.id.action_userProfile_to_userUsedServicesList)
         }
         logout.setOnClickListener {
             if (user != null) {
