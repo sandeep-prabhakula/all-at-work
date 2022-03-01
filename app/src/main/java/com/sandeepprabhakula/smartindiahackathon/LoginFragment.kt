@@ -78,7 +78,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken.toString(), null)
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
 
         GlobalScope.launch(Dispatchers.IO) {
             val auth = mAuth.signInWithCredential(credential).await()

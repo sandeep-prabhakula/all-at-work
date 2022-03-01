@@ -1,6 +1,8 @@
 package com.sandeepprabhakula.smartindiahackathon
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +26,7 @@ class SearchFragment : Fragment(), ServiceRequest {
     private lateinit var adapter: WorkersAdapter
     private lateinit var filteredWorkers: RecyclerView
     private lateinit var userDao: UserDao
+    private val msg: String = "Need your services. Are you available for providing us the services"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,8 +41,8 @@ class SearchFragment : Fragment(), ServiceRequest {
         val delhi: TextView = view.findViewById(R.id.delhi)
         val kolkata: TextView = view.findViewById(R.id.kolkata)
         val jaipur: TextView = view.findViewById(R.id.jaipur)
-        val searchView:SearchView = view.findViewById(R.id.searchView)
-        searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+        val searchView: SearchView = view.findViewById(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 setupRecyclerView(query!!)
                 return true
@@ -77,10 +80,11 @@ class SearchFragment : Fragment(), ServiceRequest {
         return view
     }
 
-    private fun setupRecyclerView(city:String) {
+    private fun setupRecyclerView(city: String) {
         workersDao = WorkersDao()
         val query =
-            workersDao.workersCollection.whereEqualTo("workerLocation",city.lowercase()).orderBy("worksDoneThisWeek",Query.Direction.ASCENDING)
+            workersDao.workersCollection.whereEqualTo("workerLocation", city.lowercase())
+                .orderBy("worksDoneThisWeek", Query.Direction.ASCENDING)
         val recyclerViewOptions =
             FirestoreRecyclerOptions.Builder<Worker>().setQuery(query, Worker::class.java).build()
         filteredWorkers.layoutManager = LinearLayoutManager(activity)
@@ -91,11 +95,22 @@ class SearchFragment : Fragment(), ServiceRequest {
 
     override fun onServiceRequest(workerId: String) {
         userDao = UserDao()
-        GlobalScope.launch(Dispatchers.IO) {
-            val worker = workersDao.getWorkerById(workerId).await().toObject(Worker::class.java)
-            if (worker != null) {
-                userDao.addUsedServices(worker)
+        val alert = AlertDialog.Builder(activity)
+        alert.setTitle("Requested a Service")
+        alert.setMessage("do you want to notify the worker with through the SMS ?")
+        alert.setPositiveButton("YES") { _, _ ->
+            GlobalScope.launch(Dispatchers.IO) {
+                val worker = workersDao.getWorkerById(workerId).await().toObject(Worker::class.java)
+                if (worker != null) {
+                    userDao.addUsedServices(worker)
+                }
             }
+            val smsManager: SmsManager = SmsManager.getDefault()
+            smsManager.sendTextMessage(workerId, null, msg, null, null)
         }
+        alert.setNegativeButton("Dismiss") { _, _ ->
+
+        }
+        alert.show()
     }
 }

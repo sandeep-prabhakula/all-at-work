@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">#089Aff</item>
         <item name="android:navigationBarColor">#089Aff</item>
-
+        <item name="android:fontFamily">@font/neue_helvetica_bq_bold</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="Theme.SmartIndiaHackathon.NoActionBar">
