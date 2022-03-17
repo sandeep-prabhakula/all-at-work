@@ -76,6 +76,7 @@
             android:backgroundTint="#089Aff"
             android:text="@string/request_a_service"
             app:cornerRadius="10dp"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/workerSkills"

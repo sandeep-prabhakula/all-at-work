@@ -42,7 +42,7 @@
     <string name="add_more_details">Add more details</string>
     <string name="logout">Logout</string>
     <string name="danger_zone">Danger zone</string>
-    <string name="delete_account">DELETE ACCOUNT</string>
+    <string name="delete_account">Delete Account</string>
     <string name="display_picture">Display Picture</string>
     <string name="request_a_service">Request a Service</string>
     <string name="pin_code">PIN Code*</string>
