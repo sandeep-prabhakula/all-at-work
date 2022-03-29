@@ -37,6 +37,16 @@
         <item>Jaipur</item>
         <item>Kochin</item>
     </string-array>
+    <string-array name="works">
+        <item>Select your skill </item>
+        <item>Construction</item>
+        <item>Sanitation and Cleaning</item>
+        <item>Electrical works</item>
+        <item>Plumbing</item>
+        <item>Carpentry</item>
+        <item>Labour</item>
+        <item>Others</item>
+    </string-array>
     <string name="search_in_your_city">Search in your city</string>
     <string name="used_services">Used Services</string>
     <string name="add_more_details">Add more details</string>

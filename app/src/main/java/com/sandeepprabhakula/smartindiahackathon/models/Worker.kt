@@ -7,5 +7,7 @@ data class Worker(
     var workerSkills: String = "",
     var worksDoneThisWeek: Int = 0,
     var workerLocation: String = "",
-    var workerPINCode: String = ""
+    var workerPINCode: String = "",
+    var workerAadharID: String = "",
+    var workerAddress:String = ""
 )

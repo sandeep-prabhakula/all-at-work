@@ -70,6 +70,28 @@
                 android:text=""
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
+            <TextView
+                android:id="@+id/aadhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Aadhar card number*"
+                android:textColor="#fff"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/newWorkerAadharID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint="Enter the Aadhar card Number"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:text=""
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/Location"
@@ -149,6 +171,15 @@
                 android:text=""
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
+            <Spinner
+                android:id="@+id/skillsSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
             <TextView
                 android:id="@+id/PINCode"
                 android:layout_width="match_parent"
@@ -172,6 +203,29 @@
                 android:text=""
                 tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Address*"
+                android:textColor="#fff"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/newWorkerAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint="Enter the Address"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:text=""
+                tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
         </LinearLayout>
     </ScrollView>

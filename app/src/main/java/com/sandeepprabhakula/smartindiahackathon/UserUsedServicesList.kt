@@ -45,9 +45,9 @@ class UserUsedServicesList : Fragment(), IComplete {
         return view
     }
 
-    override fun onClickOnComplete(mobile: String, position: Int) {
+    override fun onClickOnComplete(aadharID: String, position: Int) {
         workerDao = WorkersDao()
-        workerDao.updateTasksOfWorker(mobile)
+        workerDao.updateTasksOfWorker(aadharID)
         GlobalScope.launch(Dispatchers.IO) {
             userDao.deleteUsedServices(position)
         }

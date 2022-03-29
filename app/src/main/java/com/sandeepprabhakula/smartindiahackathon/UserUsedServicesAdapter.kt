@@ -20,7 +20,7 @@ class UserUsedServicesAdapter(private val list:ArrayList<Worker>,private val lis
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicesViewHolder {
         val view = ServicesViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.worker_layout,parent,false))
         view.requestAService.setOnClickListener {
-            listener.onClickOnComplete(list[view.absoluteAdapterPosition].workerMobile,view.absoluteAdapterPosition)
+            listener.onClickOnComplete(list[view.absoluteAdapterPosition].workerAadharID,view.absoluteAdapterPosition)
             view.requestAService.text = "Service Done"
             list.remove(list[view.absoluteAdapterPosition])
         }

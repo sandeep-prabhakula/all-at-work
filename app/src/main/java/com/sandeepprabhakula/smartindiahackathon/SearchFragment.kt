@@ -16,6 +16,7 @@ import com.google.firebase.firestore.Query
 import com.sandeepprabhakula.smartindiahackathon.daos.UserDao
 import com.sandeepprabhakula.smartindiahackathon.daos.WorkersDao
 import com.sandeepprabhakula.smartindiahackathon.models.Worker
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -99,14 +100,14 @@ class SearchFragment : Fragment(), ServiceRequest {
         alert.setTitle("Requested a Service")
         alert.setMessage("do you want to notify the worker with through the SMS ?")
         alert.setPositiveButton("YES") { _, _ ->
-            GlobalScope.launch(Dispatchers.IO) {
+            CoroutineScope(Dispatchers.IO).launch{
                 val worker = workersDao.getWorkerById(workerId).await().toObject(Worker::class.java)
                 if (worker != null) {
                     userDao.addUsedServices(worker)
+                    val smsManager: SmsManager = SmsManager.getDefault()
+                    smsManager.sendTextMessage(worker.workerMobile, null, msg, null, null)
                 }
             }
-            val smsManager: SmsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage(workerId, null, msg, null, null)
         }
         alert.setNegativeButton("Dismiss") { _, _ ->
 
