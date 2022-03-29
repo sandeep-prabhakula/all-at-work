@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.Query
 import com.sandeepprabhakula.smartindiahackathon.daos.UserDao
 import com.sandeepprabhakula.smartindiahackathon.daos.WorkersDao
 import com.sandeepprabhakula.smartindiahackathon.models.Worker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -25,13 +25,49 @@ class ListServicesFragment : Fragment(), ServiceRequest {
     private lateinit var workersDao: WorkersDao
     private lateinit var adapter: WorkersAdapter
     private lateinit var userDao: UserDao
-    private val msg:String = "Need your services. Are you available for providing us the services"
+    private val msg: String = "Need your services. Are you available for providing us the services"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list_services, container, false)
         services = view.findViewById(R.id.services)
+        val filters: FloatingActionButton = view.findViewById(R.id.filterFAB)
+        filters.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(context)
+            alertDialog.setTitle("Choose Occupation type")
+            val options = arrayOf(
+                "Construction",
+                "Sanitation and Cleaning",
+                "Electrical works",
+                "Plumbing",
+                "Carpentry",
+                "Labour"
+            )
+            alertDialog.setSingleChoiceItems(options, 0) { _, i ->
+                when (options[i]) {
+                    "Construction" -> {
+                        setupFilter("Construction")
+                    }
+                    "Sanitation and Cleaning" -> {
+                        setupFilter("Sanitation and Cleaning")
+                    }
+                    "Electrical works" -> {
+                        setupFilter("Electrical works")
+                    }
+                    "Plumbing" -> {
+                        setupFilter("Plumbing")
+                    }
+                    "Carpentry" -> {
+                        setupFilter("Carpentry")
+                    }
+                    "Labour" -> {
+                        setupFilter("Labour")
+                    }
+                }
+            }
+            alertDialog.show()
+        }
         setUpRecyclerView()
         return view
     }
@@ -45,6 +81,19 @@ class ListServicesFragment : Fragment(), ServiceRequest {
         services.layoutManager = LinearLayoutManager(activity)
         adapter = WorkersAdapter(recyclerViewOptions, this)
         services.adapter = adapter
+    }
+
+    private fun setupFilter(profession: String) {
+        workersDao = WorkersDao()
+        val query =
+            workersDao.workersCollection.whereEqualTo("workerSkills", profession)
+                .orderBy("worksDoneThisWeek")
+        val recyclerViewOptions =
+            FirestoreRecyclerOptions.Builder<Worker>().setQuery(query, Worker::class.java).build()
+        services.layoutManager = LinearLayoutManager(activity)
+        adapter = WorkersAdapter(recyclerViewOptions, this)
+        services.adapter = adapter
+        adapter.startListening()
     }
 
     override fun onStart() {

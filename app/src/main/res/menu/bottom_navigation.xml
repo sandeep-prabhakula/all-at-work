@@ -7,7 +7,7 @@
     <item
         android:id="@+id/searchFragment"
         android:title="Search"
-        android:icon="@drawable/ic_baseline_filter_list_24"/>
+        android:icon="@drawable/ic_baseline_search_24"/>
     <item
         android:id="@+id/userProfile"
         android:title="Profile"

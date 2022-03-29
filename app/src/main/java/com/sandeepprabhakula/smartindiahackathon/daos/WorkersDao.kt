@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
 class WorkersDao {
-    val db = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     val workersCollection = db.collection("workers")
 
     fun addWorker(worker: Worker?) {
